@@ -49,7 +49,7 @@ app.use('/', indexRouter);
 app.get('/auth/twitter', passport.authenticate('twitter'));
 
 app.get('/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/loggedin',
+  passport.authenticate('twitter', { successRedirect: '/home',
                                      failureRedirect: '/' }));
 
 
