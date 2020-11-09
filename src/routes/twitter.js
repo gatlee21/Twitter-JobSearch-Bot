@@ -7,12 +7,12 @@ const session = require('express-session')
 passport.use(new TwitterStrategy({
     consumerKey: '95FP7prmP9wni6AEg9tD9mD81',
     consumerSecret: 'bOZEkFXETmlkuXUyYFY8s3a2AxGVAoHEoBXWRgQrJLHYn1txyg',
-    callbackURL: "http://localhost:3000/twitter/callback"
+    callbackURL: "/twitter/callback"
   },
   function(token, tokenSecret, profile, callback) {
     return callback(null, profile);
    }
-  ));
+));
 
   passport.serializeUser(function(user, callback) {
     callback(null, user);
