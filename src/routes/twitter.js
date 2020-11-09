@@ -31,7 +31,7 @@ router.use(session({
 router.use(passport.initialize())
 router.use(passport.session())
 
-router.get('/auth/twitter', passport.authenticate('twitter'));
+router.get('/login/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback',
   passport.authenticate('twitter', { successRedirect: '/home',
