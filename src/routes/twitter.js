@@ -25,8 +25,7 @@ passport.use(new TwitterStrategy({
 router.use(session({
     secret: 'sdjasASDjioasd',
     resave: true,
-    saveUninitialized: true,
-    cookie : { secure: false }
+    saveUninitialized: true
   }))
 
 router.use(passport.initialize())
