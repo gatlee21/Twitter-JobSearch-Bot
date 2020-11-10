@@ -10,7 +10,8 @@ passport.use(new TwitterStrategy({
     callbackURL: "/twitter/callback"
   },
   function(token, tokenSecret, profile, callback) {
-    
+    console.log(token)
+    console.log(tokenSecret)
     return callback(null, profile);
    }
 ));
