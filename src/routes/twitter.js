@@ -10,6 +10,7 @@ passport.use(new TwitterStrategy({
     callbackURL: "/twitter/callback"
   },
   function(token, tokenSecret, profile, callback) {
+    
     return callback(null, profile);
    }
 ));
@@ -34,8 +35,17 @@ router.use(passport.session())
 router.get('/login/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/home',
-                                     failureRedirect: '/' }));
+  passport.authenticate('twitter', 
+    { 
+      failureRedirect: '/' 
+    }),
+    function(req, res){
+      req.session.user = req.user
+      // console.log(req.session.user)
+      res.redirect('/home')
+    }
+  
+  );
 
 
 module.exports = router
