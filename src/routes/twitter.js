@@ -37,12 +37,12 @@ router.get('/login/twitter', passport.authenticate('twitter'));
 router.get('/twitter/callback',
   passport.authenticate('twitter', 
     { 
-      failureRedirect: '/' 
+      failureRedirect: '/login' 
     }),
     function(req, res){
       req.session.user = req.user
       // console.log(req.session.user)
-      res.redirect('/home')
+      res.redirect('/')
     }
   
   );
