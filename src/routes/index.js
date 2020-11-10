@@ -9,11 +9,10 @@ router.use(twitterAuth)
 
 /* GET login page. */
 router.get('/', isLoggedIn ,function(req, res, next) {
-  res.render('home', { title: 'home' });
+  res.render('home', { title: 'home', name : req.session.user.username });
 })
 
 router.get('/login', function(req, res, next) {
-    // console.log(req.session.user)
     res.render('login', { title: 'login' })
 })
 
