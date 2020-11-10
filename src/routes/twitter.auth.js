@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport')
 const TwitterStrategy = require('passport-twitter').Strategy
-const session = require('express-session')
+const session = require('express-session');
+const T = require('../helpers/twit.config');
+
 
 passport.use(new TwitterStrategy({
     consumerKey: '95FP7prmP9wni6AEg9tD9mD81',
@@ -10,8 +12,11 @@ passport.use(new TwitterStrategy({
     callbackURL: "/twitter/callback"
   },
   function(token, tokenSecret, profile, callback) {
-    console.log(token)
-    console.log(tokenSecret)
+
+    //assign tokens to twit
+    T.config.access_token = token
+    T.config.access_token_secret = tokenSecret
+
     return callback(null, profile);
    }
 ));
@@ -42,11 +47,11 @@ router.get('/twitter/callback',
     }),
     function(req, res){
       req.session.user = req.user
-      // console.log(req.session.user)
       res.redirect('/')
     }
   
   );
 
+ 
 
 module.exports = router
