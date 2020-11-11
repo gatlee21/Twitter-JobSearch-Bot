@@ -9,6 +9,7 @@ const match_data = []
 router.get('/get/home_timeline', function(req, res){
 
     T.get(home_timeline, { count: 5 }, function(err, data){
+        //this isn't a one size fits all solution O(n)
         for(x in data){
             if(data[x].text.includes('hiring')){
                 let log_data = {
@@ -19,7 +20,11 @@ router.get('/get/home_timeline', function(req, res){
             }
     
         }
-        res.json(match_data)
+        res.render('home', {
+            title : 'home',
+            name : req.session.user.username,
+            data : match_data
+        })
     })
 })
 

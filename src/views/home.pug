@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1 #{name}
+  h1 @#{name}
   a( href="/get/home_timeline") Search home feed
+
+  if data 
+    p #{data.length} potential opportunities found
+    each post in data 
+      p #{post.name}
+      p #{post.text}
