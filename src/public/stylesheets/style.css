@@ -7,6 +7,12 @@ a {
   color: #00B7FF;
 }
 
+.results__count{
+  font-weight: 700;
+  background-color: #b6ffde;
+  max-width: 25%;
+  padding: 1%;
+}
 
 .results__data{
   margin-top: 5%;
@@ -14,4 +20,7 @@ a {
 
 .results__post{
   margin-top: 3%;
+  border-style: solid;
+  padding-left: 2%;
+  padding-bottom: 2%;
 }

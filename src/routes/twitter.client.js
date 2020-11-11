@@ -14,14 +14,16 @@ router.get('/get/home_timeline', function(req, res){
             if(data[x].text.includes('hiring')){
                 let log_data = {
                     name : data[x].user.name,
-                    text : data[x].text
+                    text : data[x].text,
+                    tweet_id : data[x].id_str
                 }
                 match_data.push(log_data)
             }
             else if(data[x].text.includes('open position')){
                 let log_data = {
                     name : data[x].user.name,
-                    text : data[x].text
+                    text : data[x].text,
+                    tweet_id : data[x].id_str
                 }
                 match_data.push(log_data)
             }
