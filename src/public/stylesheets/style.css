@@ -24,3 +24,12 @@ a {
   padding-left: 2%;
   padding-bottom: 2%;
 }
+
+.search__btn{
+  padding: 1%;
+}
+
+.search__btn:hover{
+  background-color:#E8E8E8;
+  border-radius: 4px;
+}

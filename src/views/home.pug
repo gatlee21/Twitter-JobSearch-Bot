@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 @#{name}
-  a( href="/get/home_timeline") Search home feed
+  a(class="search__btn" href="/get/home_timeline") Search home feed
 
   div(class="results")
   if data 
