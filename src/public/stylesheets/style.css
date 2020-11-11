@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.results__data{
+  margin-top: 5%;
+}
+
+.results__post{
+  margin-top: 3%;
+}

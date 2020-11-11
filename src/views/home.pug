@@ -4,8 +4,11 @@ block content
   h1 @#{name}
   a( href="/get/home_timeline") Search home feed
 
+  div(class="results")
   if data 
-    p #{data.length} potential opportunities found
-    each post in data 
-      p #{post.name}
-      p #{post.text}
+    p(class="results__count") #{data.length} potential opportunities found
+    div(class="results__data")
+      each post in data
+        div(class="results__post") 
+          p #{post.name}
+          p #{post.text}

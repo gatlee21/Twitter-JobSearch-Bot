@@ -18,6 +18,13 @@ router.get('/get/home_timeline', function(req, res){
                 }
                 match_data.push(log_data)
             }
+            else if(data[x].text.includes('open position')){
+                let log_data = {
+                    name : data[x].user.name,
+                    text : data[x].text
+                }
+                match_data.push(log_data)
+            }
     
         }
         res.render('home', {
