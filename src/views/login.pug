@@ -1,4 +1,11 @@
 extends layout
 
 block content
-  a(href="/login/twitter") Sign in with Twitter
+  form(class="twitter__login" action="/login/twitter", method="get")
+    button(class="twitter__login__btn" type="submit") Sign in with Twitter
+      div(class="twitter__login__icon") 
+  
+  
+  
+  //- a(class="twitter__btn" href="/login/twitter")
+  //-   div(class="twitter__btn__icon") Sign in with Twitter
