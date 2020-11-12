@@ -2,7 +2,15 @@ extends layout
 
 block content
   h1 @#{name}
-  a(class="search__btn" href="/get/home_timeline") Search home feed
+  form(class="search" action="/get/home_timeline", method="post")
+    label(class="search__label" for="search__select") Search Depth: 
+    select(name="depth_val" id="search__select" class="search__select")
+      each val in ['5', '10', '50', '100', '200']
+        option=val
+
+    button(type="submit") Search home feed
+    //- input(type="submit") Search home feed
+ 
 
   div(class="results")
   if data 

@@ -6,9 +6,9 @@ const home_timeline = 'https://api.twitter.com/1.1/statuses/home_timeline.json'
 
 const match_data = []
 
-router.get('/get/home_timeline', function(req, res){
-
-    T.get(home_timeline, { count: 5 }, function(err, data){
+router.post('/get/home_timeline', function(req, res){
+    console.log(`searching ${req.body.depth_val} tweets`)
+    T.get(home_timeline, { count: req.body.depth_val }, function(err, data){
         //this isn't a one size fits all solution O(n)
         for(x in data){
             if(data[x].text.includes('hiring')){
